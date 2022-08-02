@@ -14,11 +14,10 @@ import { userAction } from "../../Store/UserSlice";
 import Rightbar from "../Rightbar";
 import Sidebar from "../Sidebar";
 
-
 const Followers = () => {
-  const {user} = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const followers = user.followers
+  const followers = user.followers;
 
   useEffect(() => {
     const getFollowersData = async () => {
@@ -26,9 +25,10 @@ const Followers = () => {
         const response = await axios.get(
           `https://tell-us-backend.herokuapp.com/user/${user._id}`
         );
-        dispatch(
-          userAction.getUserFollowers(response.data.getDetails.followers)
-        );
+        if (response)
+          dispatch(
+            userAction.getUserFollowers(response.data.getDetails.followers)
+          );
       } catch (error) {
         console.log(error.message);
       }
@@ -36,13 +36,15 @@ const Followers = () => {
     getFollowersData();
   }, [dispatch]);
 
-  const removeFollowerHandler = async(clientId) => {
+  const removeFollowerHandler = async (clientId) => {
     try {
-      const response = await axios.post(`https://tell-us-backend.herokuapp.com/userActions/${user._id}/removefollower/${clientId}`)
+      const response = await axios.post(
+        `https://tell-us-backend.herokuapp.com/userActions/${user._id}/removefollower/${clientId}`
+      );
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <Box>
@@ -50,10 +52,18 @@ const Followers = () => {
         <Sidebar />
         <Box flex={8} p={1} pt={3}>
           {followers.length === 0 ? (
-            <Typography sx={{color:"#f5c71a" }} variant="h6">Oops... You have 0 followers</Typography>
+            <Typography sx={{ color: "#f5c71a" }} variant="h6">
+              Oops... You have 0 followers
+            </Typography>
           ) : (
             followers.map((eachUser) => (
-              <Card sx={{ boxShadow: 5, borderRadius:"0.75rem", bgcolor:"#f5c71a" }}>
+              <Card
+                sx={{
+                  boxShadow: 5,
+                  borderRadius: "0.75rem",
+                  bgcolor: "#f5c71a",
+                }}
+              >
                 <CardContent>
                   <Box>
                     <Stack
@@ -62,7 +72,7 @@ const Followers = () => {
                       spacing={1}
                     >
                       <Stack direction="row" spacing={1}>
-                        <Avatar src={eachUser.avatar}  />
+                        <Avatar src={eachUser.avatar} />
                         {/* <Stack direction="column" justifyContent="space-between"> */}
                         <Typography pt={0.5} component="div" variant="h6">
                           {eachUser.name}
@@ -98,7 +108,7 @@ const Followers = () => {
                           backgroundColor: "#f5c71a",
                           borderRadius: "3rem",
                           color: "black",
-                          border:"solid 1px black"
+                          border: "solid 1px black",
                         }}
                         onClick={removeFollowerHandler(eachUser._id)}
                       >

@@ -20,12 +20,12 @@ const Followings = () => {
   const dispatch = useDispatch();
   const followings = user.followings;
   const [follow, setFollow] = useState(true)
-
+console.log(followings)
   useEffect(() => {
     const getFollowingData = async () => {
       try {
         const response = await axios.get(
-          `https://tell-us-backend.herokuapp.com//user/${user._id}`
+          `https://tell-us-backend.herokuapp.com/user/${user._id}`
         );
         if(response)
         dispatch(
@@ -36,11 +36,11 @@ const Followings = () => {
       }
     };
     getFollowingData();
-  }, [follow]);
+  }, [dispatch,follow]);
 
   const unfollowHandler = async(clientId) => {
     try {
-      const response = await axios.post(`https://tell-us-backend.herokuapp.com//userActions/${user._id}/unfollow/${clientId}`)
+      const response = await axios.post(`https://tell-us-backend.herokuapp.com/userActions/${user._id}/unfollow/${clientId}`)
       if(response){
         setFollow(false)
       }
