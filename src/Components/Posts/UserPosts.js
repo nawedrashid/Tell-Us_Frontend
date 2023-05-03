@@ -29,7 +29,7 @@ const Posts = () => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `https://tell-us-backend.herokuapp.com/user/${user._id}/posts`
+          `https://tell-us-backend.onrender.com/user/${user._id}/posts`
         );
  
         if (response) {
@@ -46,7 +46,7 @@ const Posts = () => {
   const likeHandler = async (postId) => {
     try {
       const response = await axios.post(
-        `https://tell-us-backend.herokuapp.com/userActions/${user._id}/likedPost/${postId}`
+        `https://tell-us-backend.onrender.com/userActions/${user._id}/likedPost/${postId}`
       );
       if (response.status === 200) {
         await dispatch(postAction.likePost({ postId: postId, userId: user._id }));
@@ -61,7 +61,7 @@ const Posts = () => {
   const dislikeHandler = async (postId) => {
     try {
       const response = await axios.post(
-        `https://tell-us-backend.herokuapp.com/userActions/${user._id}/dislikedPost/${postId}`
+        `https://tell-us-backend.onrender.com/userActions/${user._id}/dislikedPost/${postId}`
       );
       if (response.status === 200) {
         await dispatch(

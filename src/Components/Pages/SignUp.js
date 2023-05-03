@@ -71,7 +71,7 @@ const SignUp = () => {
       form.append("photo", file);
       const response = await axios({
         method: "post",
-        url: "https://tell-us-backend.herokuapp.com/user/registration",
+        url: "https://tell-us-backend.onrender.com/user/registration",
         data: form,
         headers: {
           "Content-Type": `multipart/form-data`,

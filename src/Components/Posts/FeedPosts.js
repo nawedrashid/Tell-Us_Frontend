@@ -20,7 +20,7 @@ const FeedPosts = () => {
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios.get(
-        `https://tell-us-backend.herokuapp.com/user/${user._id}/followingposts`
+        `https://tell-us-backend.onrender.com/user/${user._id}/followingposts`
       );
       if (response.data) await setFeedPosts(response.data.allPosts);
     };

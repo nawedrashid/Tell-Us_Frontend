@@ -39,7 +39,7 @@ const CreatePost = () => {
       form.append("photo", file);
       const response = await axios({
         method: "post",
-        url: `https://tell-us-backend.herokuapp.com/userActions/${userInfo.user._id}/upload`,
+        url: `https://tell-us-backend.onrender.com/userActions/${userInfo.user._id}/upload`,
         data: form,
         headers: {
           "Content-Type": `multipart/form-data`,

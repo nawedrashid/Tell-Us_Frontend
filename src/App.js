@@ -22,7 +22,7 @@ function App() {
     const getFollowingData = async () => {
       try {
         const response = await axios.get(
-          `https://tell-us-backend.herokuapp.com/userActions/unfollowed`
+          `https://tell-us-backend.onrender.com/userActions/unfollowed`
         );
         if(response)
         console.log(response)

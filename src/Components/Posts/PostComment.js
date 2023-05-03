@@ -30,7 +30,7 @@ const PostComment = () => {
   useEffect(() => {
     const getComments = async () => {
       const response = await axios.get(
-        `https://tell-us-backend.herokuapp.com/userActions/${postId}/comments`
+        `https://tell-us-backend.onrender.com/userActions/${postId}/comments`
       );
       if (response.data.success === true)
         dispatch(postAction.Comment(response.data.getPost));
@@ -44,7 +44,7 @@ const PostComment = () => {
 
   const commentHandler = async (userId,postId) => {
     try{
-        const response = await axios.post(`https://tell-us-backend.herokuapp.com/userActions/addComment/${postId}/userId/${userId}`,{
+        const response = await axios.post(`https://tell-us-backend.onrender.com/userActions/addComment/${postId}/userId/${userId}`,{
           commentText:createComment
         })
         console.log(response)

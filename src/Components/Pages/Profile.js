@@ -69,7 +69,7 @@ const Profile = () => {
       form.append("photo", file);
       const response = await axios({
         method: "post",
-        url: `https://tell-us-backend.herokuapp.com/user/editProfile/${userInfo.user._id}`,
+        url: `https://tell-us-backend.onrender.com/user/editProfile/${userInfo.user._id}`,
         data: form,
         headers: {
           "Content-Type": `multipart/form-data`,

@@ -50,7 +50,7 @@ const Login = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://tell-us-backend.herokuapp.com/user/login", {
+      const response = await axios.post("https://tell-us-backend.onrender.com/user/login", {
         email: user.email,
         password: user.password,
       });

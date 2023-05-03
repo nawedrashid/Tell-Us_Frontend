@@ -8,7 +8,7 @@ const SearchUser = ({ name, username, avatar, id }) => {
   const { user } = useSelector((state) => state.user)
   const followingHandler = async() =>{
     try{
-        const response = await axios.post(`https://tell-us-backend.herokuapp.com/user/${user._id}/follow/${id}`)
+        const response = await axios.post(`https://tell-us-backend.onrender.com/user/${user._id}/follow/${id}`)
         if(response){
           console.log("Followed")
         }

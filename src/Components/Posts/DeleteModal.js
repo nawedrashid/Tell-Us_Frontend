@@ -25,7 +25,7 @@ const DeleteModal = ({closeHandler,open,setOpen,postId,setCount}) => {
     setOpen(false);
     try {
       const response = await axios.post(
-        `https://tell-us-backend.herokuapp.com/userActions/${user._id}/removePost/${postId}`
+        `https://tell-us-backend.onrender.com/userActions/${user._id}/removePost/${postId}`
       );
       if (response.data.success === true){
         dispatch(postAction.deletePost(postId));

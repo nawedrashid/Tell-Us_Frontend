@@ -23,7 +23,7 @@ const Followers = () => {
     const getFollowersData = async () => {
       try {
         const response = await axios.get(
-          `https://tell-us-backend.herokuapp.com/user/${user._id}`
+          `https://tell-us-backend.onrender.com/user/${user._id}`
         );
         if (response)
           dispatch(
@@ -39,7 +39,7 @@ const Followers = () => {
   const removeFollowerHandler = async (clientId) => {
     try {
       const response = await axios.post(
-        `https://tell-us-backend.herokuapp.com/userActions/${user._id}/removefollower/${clientId}`
+        `https://tell-us-backend.onrender.com/userActions/${user._id}/removefollower/${clientId}`
       );
     } catch (error) {
       console.log(error);

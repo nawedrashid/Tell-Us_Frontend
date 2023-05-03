@@ -11,7 +11,7 @@ const SearchPage = () => {
   const getData = async (e) => {
     try {
       const response = await axios.get(
-        `https://tell-us-backend.herokuapp.com/userActions/${e.target.value}`
+        `https://tell-us-backend.onrender.com/userActions/${e.target.value}`
       );
       setSearchData(response.data.response);
     } catch (error) {

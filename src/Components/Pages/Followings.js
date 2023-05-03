@@ -25,7 +25,7 @@ console.log(followings)
     const getFollowingData = async () => {
       try {
         const response = await axios.get(
-          `https://tell-us-backend.herokuapp.com/user/${user._id}`
+          `https://tell-us-backend.onrender.com/user/${user._id}`
         );
         if(response)
         dispatch(
@@ -40,7 +40,7 @@ console.log(followings)
 
   const unfollowHandler = async(clientId) => {
     try {
-      const response = await axios.post(`https://tell-us-backend.herokuapp.com/userActions/${user._id}/unfollow/${clientId}`)
+      const response = await axios.post(`https://tell-us-backend.onrender.com/userActions/${user._id}/unfollow/${clientId}`)
       if(response){
         setFollow(false)
       }
